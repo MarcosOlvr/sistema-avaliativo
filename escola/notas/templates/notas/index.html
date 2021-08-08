@@ -1,6 +1,9 @@
 {% extends "notas/layout.html" %}
 
 {% block body %}
+
 <h1>Sistema Avaliativo</h1>
-<a href="{% url 'login' %}">Login</a>
+<a href="{% url 'tabelas' %}">Notas</a>
+<a href="{% url 'logout' %}">Sair</a>
+
 {% endblock %}
