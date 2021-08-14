@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
+from .models import Final, Aluno, PrimeiroBimestre, SegundoBimestre, TerceiroBimestre, QuartoBimestre
+from django.db.models import Sum
+
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
@@ -11,4 +14,6 @@ def index(request):
 def tabelas(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
-    return render(request, "notas/tabelas.html")
+    return render(request, "notas/tabelas.html", {
+        "final": Final.objects.all(),
+    })
