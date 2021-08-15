@@ -1,0 +1,20 @@
+{% extends "notas/layout.html" %}
+
+{% block title %}Alunos{% endblock %}
+
+{% block body %}
+
+<h1>Alunos</h1>
+
+<ul>
+    {% for aluno in alunos %}
+    <li>
+        <a href="{% url 'teste' aluno.id %}">{{ aluno }}</a>
+    </li>
+    {% endfor %}
+</ul>
+<div>
+    <a href="{% url 'index' %}">Voltar para a página inicial</a>
+</div>
+
+{% endblock %}

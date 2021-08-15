@@ -1,0 +1,90 @@
+<style>
+    table{
+        border: 1px black solid;
+    }
+    th{
+        border: 1px black solid;
+    }
+    td{
+        border: 1px black solid;
+    }
+    
+    </style>
+
+{% extends "notas/layout.html" %}
+
+{% block title %}Alunos / {{ aluninho.nome_aluno }}{% endblock %}
+
+{% block body %}
+    <h1>Aluno: {{ aluninho.nome_aluno }}</h1>
+    {% for e in final %}
+        {% ifequal e.aluno.nome_aluno aluninho.nome_aluno %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Componentes Curriculares</th>
+                    <th>1º Bim</th>
+                    <th>2º Bim</th>
+                    <th>3° Bim</th>
+                    <th>4° Bim</th>
+                    <th>Total de Faltas</th>
+                    <th>Nota Final</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="port">
+                    <td>Português</td>
+                    <td>{{ e.primeiro_bimestre.primeira_nota_Português }}</td>
+                    <td>{{ e.segundo_bimestre.segunda_nota_Português }}</td>
+                    <td>{{ e.terceiro_bimestre.terceira_nota_Português }}</td>
+                    <td>{{ e.quarto_bimestre.quarta_nota_Português }}</td>
+                    <td>{{ e.faltas_port}}</td>
+                    <td>{{ e.media_port }}</td>
+                </tr>
+                <tr id="mat">
+                    <td>Matemática</td>
+                    <td>{{ e.primeiro_bimestre.primeira_nota_Matemática }}</td>
+                    <td>{{ e.segundo_bimestre.segunda_nota_Matemática }}</td>
+                    <td>{{ e.terceiro_bimestre.terceira_nota_Matemática }}</td>
+                    <td>{{ e.quarto_bimestre.quarta_nota_Matemática }}</td>
+                    <td>{{ e.faltas_mat }}</td>
+                    <td>{{ e.media_mat }}</td>
+                </tr>
+                <tr id="hist">
+                    <td>História</td>
+                    <td>{{ e.primeiro_bimestre.primeira_nota_História }}</td>
+                    <td>{{ e.segundo_bimestre.segunda_nota_História }}</td>
+                    <td>{{ e.terceiro_bimestre.terceira_nota_História }}</td>
+                    <td>{{ e.quarto_bimestre.quarta_nota_História }}</td>
+                    <td>{{ e.faltas_hist }}</td>
+                    <td>{{ e.media_hist }}</td>
+                </tr>
+                <tr id="geo">
+                    <td>Geografia</td>
+                    <td>{{ e.primeiro_bimestre.primeira_nota_Geografia }}</td>
+                    <td>{{ e.segundo_bimestre.segunda_nota_Geografia }}</td>
+                    <td>{{ e.terceiro_bimestre.terceira_nota_Geografia }}</td>
+                    <td>{{ e.quarto_bimestre.quarta_nota_Geografia }}</td>
+                    <td>{{ e.faltas_geo }}</td>
+                    <td>{{ e.media_geo }}</td>
+                </tr>
+                <tr id="cien">
+                    <td>Ciências</td>
+                    <td>{{ e.primeiro_bimestre.primeira_nota_Ciências }}</td>
+                    <td>{{ e.segundo_bimestre.segunda_nota_Ciências}}</td>
+                    <td>{{ e.terceiro_bimestre.terceira_nota_Ciências }}</td>
+                    <td>{{ e.quarto_bimestre.quarta_nota_Ciências }}</td>
+                    <td>{{ e.faltas_cien }}</td>
+                    <td>{{ e.media_cien }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        {% endifequal %}
+    {% endfor %}
+
+    <div>
+        <a href="{% url 'lista' %}">Voltar para a lista de alunos</a> <br>
+        <a href="{% url 'index' %}">Voltar para a página inicial</a> 
+    </div>
+{% endblock %}
