@@ -1,37 +1,121 @@
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+  body{
+    background-image: linear-gradient(to right,cornflowerblue, deepskyblue);
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Rubik', sans-serif;
+  }
+  .container{
+    background-image: url(https://static.escolakids.uol.com.br/2020/08/licoes-importantes-escola.jpg);
+    width: 600px;
+    height: 320px;
+    margin-left: 200px;
+    margin-top: 150px;
+    border-radius: 3px 0px 0px 3px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+  }
+  .cont{
+    margin-left: 600px;
+    width: 320px;
+    height: 310px;
+    padding-top: 10px;
+    margin-top: 0px;
+    background-color: white;
+    padding-left: 30px;
+    border-radius: 0px 3px 3px 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+  }
+  .input_user_senha{
+    padding-top: 20px;
+    font-size: 18px;
+  }
+  h1{
+    padding-left: 50px;
+  }
+  #enviar{
+    margin-left: 110px;
+    margin-top: 30px;
+    padding: 10px 30px;
+    background-color:rgb(0, 191, 255);
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.418);
+  }
+  #enviar:hover{
+    background-color: rgba(0, 191, 255, 0.295);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.418);
+  }
+  input{
+    padding: 3px;
+    border-bottom: solid rgb(0, 191, 255);
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    font-family: 'Rubik', sans-serif;
+  }
+  a{
+    text-decoration: none;
+    color: rgb(0, 130, 173);
+    font-size: 15px;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+
+</style>
+
 {% extends "registration/base.html" %}
 
 {% block content %}
 
-  {% if form.errors %}
-    <p>Seu nome de usuário ou senha está errado. Por favor, tente novamente.</p>
-  {% endif %}
+<div class="container">
 
+  {% if form.errors %}
+    <script>
+      alert("Seu nome de usuário ou senha está errado. Por favor, tente novamente.")
+    </script>
+  {% endif %}
+    
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Sua conta não tem acesso a essa página. Para proceguir,
-      entre em uma conta que contenha o acesso.</p>
+      <script> 
+        alert('Sua conta não tem acesso a essa página. Para proceguir, entre em uma conta que contenha o acesso.')
+      </script>
     {% else %}
-      <p>Por favor, faça o login para visualizar essa página!.</p>
+      <script> 
+        alert('Por favor, faça o login para visualizar essa página!.')
+      </script>
     {% endif %}
   {% endif %}
 
+  <div class="cont">
+  
+    <h1>Bem-vindo!</h1>
+  
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <table>
       <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
+        <td class="input_user_senha">{{ form.username.label_tag }}</td>
+        <td class="input_user_senha">{{ form.username }}</td>
       </tr>
       <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
+        <td class="input_user_senha">{{ form.password.label_tag }}</td>
+        <td class="input_user_senha">{{ form.password }}</td>
       </tr>
     </table>
-    <input type="submit" value="Login" />
+    <input id="enviar" type="submit" value="Entrar" />
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <p><a href="{% url 'password_reset' %}">Perdeu a senha?</a></p>
+
+</div>
+
+</div>
 
 {% endblock %}
