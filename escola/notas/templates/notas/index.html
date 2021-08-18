@@ -1,11 +1,139 @@
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+}
+header{
+    background-color: rgba(135, 207, 235, 0.637);
+    padding: 5px;
+    width: 100vw;
+    height: 13vh;
+}
+#titulo{
+    left: 7vw;
+    margin-top: 10px;
+    top: 1vh;
+    position: relative;
+}
+#titulo > a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Merienda', cursive;
+    font-size: 35px;
+}
+@media(max-width:760px) {
+/* ADICIONAR AQUI UM MENU DE OPÇÕES */
+.texto-intro1{
+    font-size: 40px;
+    top: 30vh;
+    left: 3vw;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.555);
+    width: 400px;
+    color: white;
+    height: 10vh;
+    padding: 10px;
+}
+.texto-intro2{
+    font-size: 40px;
+    top: 30vh;
+    left: 3vw;
+    position: relative;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.555);
+    width: 480px;
+    color: white;
+    height: 10vh;
+    padding: 10px;
+}
+}
+
+@media(min-width:760px){
+.links{
+    left:65vw;
+    position: relative;
+    bottom: 4vh;
+    font-size: 17px;
+    text-decoration: none;
+    color: black;
+    margin: auto;
+    text-transform: uppercase;
+    padding: 20px;
+    text-align: center;
+}
+.texto-intro1{
+    font-size: 40px;
+    top: 30vh;
+    left: 6vw;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.555);
+    width: 400px;
+    color: white;
+    height: 10vh;
+    padding: 10px;
+}
+.texto-intro2{
+    font-size: 40px;
+    top: 30vh;
+    left: 6vw;
+    position: relative;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.555);
+    width: 480px;
+    color: white;
+    height: 10vh;
+    padding: 10px;
+}
+}
+
+.links:hover{
+    border-bottom: 2px solid black;
+    padding-bottom: 1px;
+}
+#princ {
+    border-bottom: 2px solid black;
+    padding-bottom: 1px;
+}
+.container {
+    background-image: url(https://www.buenosaireseducacional.com.br/wp-content/uploads/2019/07/saber-espanhol-para-estudar-na-argentina.png);
+}
+
+</style>
+
 {% extends "notas/layout.html" %}
 
 {% block title %}Sistema Avaliativo{% endblock %}
 
 {% block body %}
 
-<h1>Sistema Avaliativo</h1>
-<a href="{% url 'lista' %}">Notas</a>
-<a href="{% url 'logout' %}">Sair</a>
+<div class="container">
+<header>
+    <nav>
+        <h1 id="titulo"><a href="{% url 'index' %}">Sistema Avaliativo</a></h1>
+        <a class="links" id="princ" href="{% url 'index' %}">Início</a>
+        <a class="links" href="{% url 'lista' %}">Notas</a>
+        <a class="links" href="{% url 'logout' %}">Sair</a>
+    </nav>
+</header>
+
+<div id="caixa-texto">
+    <h2 class="texto-intro1">Adicione e verifique</h2> 
+    <h2 class="texto-intro2">as notas de seus alunos!</h2>
+</div>
+
+</div>
 
 {% endblock %}
