@@ -1,20 +1,224 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+    
+    @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+    
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Rubik', sans-serif;
+    }
+    body{
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+    
+    .links{
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+    }
+    
+    #nav-bar{
+        background-color: #23232e;
+        padding: 5px;
+        width: 100vw;
+        height: 14vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .nav-list {
+        list-style: none;
+        display: flex;
+    }
+    
+    .nav-list li{
+        letter-spacing: 3px;
+        margin-left: 32px;
+    }
+    .mobile-menu {
+        display: none;
+        cursor: pointer;
+    }
+    .mobile-menu div{
+        width: 32px;
+        height: 2px;
+        background: white;
+        margin: 8px;
+        transition: 0.3s;
+    }
+    #titulo{
+        margin-top: 10px;
+        position: relative;
+    }
+    #titulo > a{
+        text-decoration: none;
+        color: white;
+        font-family: 'Merienda', cursive;
+        font-size: 35px;
+    }
+    @media(max-width:800px) {
+    .nav-list{
+        position: absolute;
+        top: 14vh;
+        right: 0;
+        width: 35vw;
+        height: 92vh;
+        background: #23232e;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+    }
+    .nav-list li {
+        margin-left: 0;
+    }
+    .mobile-menu {
+        display: block;
+    }
+}
+.nav-list.active {
+    transform: translateX(0);
+}
+@keyframes navLinkFade{
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.links:hover{
+    border-bottom: 2px solid white;
+    padding-bottom: 1px;
+    opacity: 0.7;
+}
+#princ {
+    border-bottom: 2px solid white;
+    padding-bottom: 1px;
+    }
+
+.mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+.mobile-menu.active .line2 {
+    opacity: 0;
+}
+.mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+.container{
+    height: 100vh;
+}
+main{
+    font-size: 25px;
+    margin: 20px auto;
+    border: 1px solid black;
+    width: 60vw;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
+}
+td{
+    padding: 3px;
+}
+#alunos{
+    color: black;
+    font-size: 45px;
+    position: relative;
+    margin-top: 30px;
+}
+.ver-mais, p {
+    display: inline-block;
+    font-size: 23px;
+    color: black;
+    padding: 7px;
+    border: 2px solid black;
+}
+p{
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+}
+
+.ver-mais{
+    color: #23232e;
+    font-size: 19px;
+    font-style: italic;
+}
+.ver-mais:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+#add{
+    color: black;
+    font-style: italic;
+    font-size: 18px;
+}
+#add:hover{
+    opacity: 0.7;
+    border-bottom: 2px solid black;
+    padding-bottom: 1px;
+}
+</style>
+
 {% extends "notas/layout.html" %}
+
+{% load static %}
 
 {% block title %}Alunos{% endblock %}
 
 {% block body %}
 
-<h1>Alunos</h1>
+<div class="container">
+    <header>
+        <nav id="nav-bar">
+            <h1 id="titulo"><a href="{% url 'index' %}">Sistema Avaliativo</a></h1>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a class="links" href="{% url 'index' %}">Início</a></li>
+                <li><a class="links" id="princ" href="{% url 'lista' %}">Notas</a></li>
+                <li><a class="links" href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<ul>
-    {% for aluno in alunos %}
-    <li>
-        <a href="{% url 'teste' aluno.id %}">{{ aluno }}</a>
-    </li>
-    {% endfor %}
-</ul>
-<div>
-    <a href="{% url 'index' %}">Voltar para a página inicial</a>
+    
+<main>
+    <h1 id="alunos">Alunos</h1>
+    <table>
+        {% for aluno in alunos %}
+        <tr>
+            <td>
+                <p>{{ aluno }}</p>
+                <a href="{% url 'teste' aluno.id %}" class="ver-mais">Ver mais informações</a>
+            </td>
+        </tr>
+        {% empty %}
+        <h2 class="sem-alunos">Nenhhum aluno cadastrado!</h2>
+        {% endfor %}
+    </table>
+    <div><a href="{% url 'adicionar' %}" id="add">Adicionar aluno</a></div>
+</main>
+
 </div>
+
+<script src="{% static 'js/scripts.js' %}"></script>
 
 {% endblock %}

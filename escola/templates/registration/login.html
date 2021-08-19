@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
   body{
-    background-image: linear-gradient(to right,cornflowerblue, deepskyblue);
+    background-image: linear-gradient(to right,#23232e, #44445a);
     margin: 0px;
     padding: 0px;
     font-family: 'Rubik', sans-serif;
@@ -79,6 +79,7 @@
     border-right: 0px;
     border-left: 0px;
     font-family: 'Rubik', sans-serif;
+    font-size: 16px;
   }
   a{
     text-decoration: none;
@@ -86,8 +87,9 @@
     font-size: 15px;
   }
   a:hover{
-    text-decoration: underline;
-    color: blue;
+    border-bottom: 2px solid red;
+    padding-bottom: 1px;
+    opacity: 0.7;
   }
 
 </style>
@@ -139,7 +141,7 @@
   </form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Perdeu a senha?</a></p>
+  <p><a href="{% url 'password_reset' %}">Esqueceu a senha?</a></p>
 
 </div>
 

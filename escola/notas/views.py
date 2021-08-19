@@ -26,3 +26,8 @@ def teste(request, aluno_id):
         "aluninho": aluninho,
         "final": Final.objects.all()
     })
+
+def adicionar(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('login'))
+    return render(request, "notas/adicionar.html")

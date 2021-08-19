@@ -1,0 +1,243 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+    
+    @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+    
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Rubik', sans-serif;
+    }
+    body{
+        overflow-x:hidden;
+        overflow-y: hidden;
+    }
+    
+    .links{
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+    }
+    
+    #nav-bar{
+        background-color: #23232e;
+        padding: 5px;
+        width: 100vw;
+        height: 14vh;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .nav-list {
+        list-style: none;
+        display: flex;
+    }
+    
+    .nav-list li{
+        letter-spacing: 3px;
+        margin-left: 32px;
+    }
+    .mobile-menu {
+        display: none;
+        cursor: pointer;
+    }
+    .mobile-menu div{
+        width: 32px;
+        height: 2px;
+        background: white;
+        margin: 8px;
+        transition: 0.3s;
+    }
+    #titulo{
+        margin-top: 10px;
+        position: relative;
+    }
+    #titulo > a{
+        text-decoration: none;
+        color: white;
+        font-family: 'Merienda', cursive;
+        font-size: 35px;
+    }
+main{
+    margin: 30px auto;
+    border: 1px solid black;
+    width: 60vw;
+    height: 75vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
+}
+    .add > p{
+    font-size: 1.5rem;
+}
+.add > p >a{
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: 1.2rem;
+    color:cornflowerblue;
+}
+.add p, a{
+    padding: 20px;
+}
+@media(max-width:800px) {
+    .nav-list{
+        position: absolute;
+        top: 14vh;
+        right: 0;
+        width: 35vw;
+        height: 92vh;
+        background: #23232e;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+    }
+    .nav-list li {
+        margin-left: 0;
+    }
+    .mobile-menu {
+        display: block;
+    }
+    main{
+    margin: 10px auto;
+    border: 1px solid black;
+    width: 60vw;
+    height: 83vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
+}
+    
+    .add > p{
+        font-size: 1.375rem;
+    }
+
+    .add > p >a{
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: 1.063rem;
+    color:cornflowerblue;
+    }
+    .add p, a{
+    padding: 20px;
+}
+}
+.nav-list.active {
+    transform: translateX(0);
+}
+@media only screen and (max-width: 540px){
+    main{
+    margin: 10px auto;
+    border: 1px solid black;
+    width: 60vw;
+    height: 83vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
+}
+    .add > p{
+        font-size: 1.3rem;
+    }
+
+    .add > p >a{
+    text-decoration: none;
+    padding-left: 10px;
+    font-size: 1rem;
+    color:cornflowerblue;
+    }
+    .add p, a{
+    padding: 15px;
+}
+}
+@media only screen and (max-width: 957px){
+    .add p, a{
+    padding: 15px;
+}
+}
+@keyframes navLinkFade{
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.links:hover{
+    border-bottom: 2px solid white;
+    padding-bottom: 1px;
+    opacity: 0.7;
+}
+.mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+.mobile-menu.active .line2 {
+    opacity: 0;
+}
+.mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+
+.add > p > a:hover{
+    border-bottom: 2px solid cornflowerblue;
+    padding-bottom: 1px;
+    opacity: 0.7;
+}
+
+</style>
+
+{% extends 'notas/layout.html' %}
+
+{% load static %}
+
+{% block title %}Adicionar Alunos{% endblock %}
+
+{% block body %}
+<div class="container">
+    <header>
+        <nav id="nav-bar">
+            <h1 id="titulo"><a href="{% url 'index' %}">Sistema Avaliativo</a></h1>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a class="links" href="{% url 'index' %}">Início</a></li>
+                <li><a class="links" href="{% url 'lista' %}">Notas</a></li>
+                <li><a class="links" href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="add">
+            <p>Nome do aluno:<a href="http://127.0.0.1:8000/admin/notas/aluno/add/?_to_field=id&_popup=1" onClick="window.open(this.href,'pagename','resizable,height=600,width=600'); return false;" target="_blank">Adicionar</a></p>
+            <p>Notas e faltas do PRIMEIRO bimestre:<a href="http://127.0.0.1:8000/admin/notas/primeirobimestre/add/?_to_field=id&_popup=1" onClick="window.open(this.href,'pagename','resizable,height=600,width=600'); return false;" target="-blank">Adicionar</a></p>
+            <p>Notas e faltas do SEGUNDO bimestre:<a href="http://127.0.0.1:8000/admin/notas/segundobimestre/add/?_to_field=id&_popup=1" onClick="window.open(this.href,'pagename','resizable,height=600,width=600'); return false;" target="_blank">Adicionar</a></p>
+            <p>Notas e faltas do TERCEIRO bimestre:<a href="http://127.0.0.1:8000/admin/notas/terceirobimestre/add/?_to_field=id&_popup=1" onClick="window.open(this.href,'pagename','resizable,height=600,width=600'); return false;" target="_blank">Adicionar</a></p>
+            <p>Notas e faltas do QUARTO bimestre:<a href="http://127.0.0.1:8000/admin/notas/quartobimestre/add/?_to_field=id&_popup=1" onClick="window.open(this.href,'pagename','resizable,height=600,width=600'); return false;" target="_blank">Adicionar</a></p>
+            <p>Inserir na tabela: <a href="http://127.0.0.1:8000/admin/notas/final/add/" target="_blank" onClick="window.open(this.href,'pagename','resizable,height=600,width=600'); return false;">Adicionar</a></p>
+        </div>
+    </main>
+
+</div>
+
+<script src="{% static 'js/scripts.js' %}"></script>
+
+{% endblock %}

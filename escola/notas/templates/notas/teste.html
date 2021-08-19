@@ -1,6 +1,36 @@
 <style>
-    table{
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+body{
+    overflow-x:hidden;
+    overflow-y: hidden;
+}
+main{
+    font-size: 25px;
+    margin: 20px auto;
+    border: 1px solid black;
+    width: 60vw;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.418);
+    border-radius: 5px;
+}
+table{
         border: 1px black solid;
+        text-align: center;
+        font-size: 20px;
     }
     th{
         border: 1px black solid;
@@ -8,83 +38,213 @@
     td{
         border: 1px black solid;
     }
-    
-    </style>
+.links{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+.links:hover{
+    border-bottom: 2px solid white;
+    padding-bottom: 1px;
+    opacity: 0.7;
+}
+.nome{
+    border: 1px solid black;
+    padding: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.418);
+}
+#nav-bar{
+    background-color: #23232e;
+    padding: 5px;
+    width: 100vw;
+    height: 14vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li{
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+.mobile-menu div{
+    width: 32px;
+    height: 2px;
+    background: white;
+    margin: 8px;
+    transition: 0.3s;
+}
+#titulo{
+    margin-top: 10px;
+    position: relative;
+}
+#titulo > a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Merienda', cursive;
+    font-size: 35px;
+}
+@media(max-width:800px) {
+.nav-list{
+    position: absolute;
+    top: 14vh;
+    right: 0;
+    width: 35vw;
+    height: 92vh;
+    background: #23232e;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+}
+.nav-list li {
+    margin-left: 0;
+}
+.mobile-menu {
+    display: block;
+}
+main{
+    font-size: 25px;
+    margin: 20px auto;
+    border: 0;
+    width: 60vw;
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 0px 0px;
+    border-radius: 5px;
+}
+}
+.nav-list.active {
+    transform: translateX(0);
+}
+
+@keyframes navLinkFade{
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+.mobile-menu.active .line2 {
+    opacity: 0;
+}
+.mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+</style>
 
 {% extends "notas/layout.html" %}
+
+{% load static %}
 
 {% block title %}Alunos / {{ aluninho.nome_aluno }}{% endblock %}
 
 {% block body %}
-    <h1>Aluno: {{ aluninho.nome_aluno }}</h1>
-    {% for e in final %}
-        {% ifequal e.aluno.nome_aluno aluninho.nome_aluno %}
-        <table>
-            <thead>
-                <tr>
-                    <th>Componentes Curriculares</th>
-                    <th>1º Bim</th>
-                    <th>2º Bim</th>
-                    <th>3° Bim</th>
-                    <th>4° Bim</th>
-                    <th>Total de Faltas</th>
-                    <th>Nota Final</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="port">
-                    <td>Português</td>
-                    <td>{{ e.primeiro_bimestre.primeira_nota_Português }}</td>
-                    <td>{{ e.segundo_bimestre.segunda_nota_Português }}</td>
-                    <td>{{ e.terceiro_bimestre.terceira_nota_Português }}</td>
-                    <td>{{ e.quarto_bimestre.quarta_nota_Português }}</td>
-                    <td>{{ e.faltas_port}}</td>
-                    <td>{{ e.media_port }}</td>
-                </tr>
-                <tr id="mat">
-                    <td>Matemática</td>
-                    <td>{{ e.primeiro_bimestre.primeira_nota_Matemática }}</td>
-                    <td>{{ e.segundo_bimestre.segunda_nota_Matemática }}</td>
-                    <td>{{ e.terceiro_bimestre.terceira_nota_Matemática }}</td>
-                    <td>{{ e.quarto_bimestre.quarta_nota_Matemática }}</td>
-                    <td>{{ e.faltas_mat }}</td>
-                    <td>{{ e.media_mat }}</td>
-                </tr>
-                <tr id="hist">
-                    <td>História</td>
-                    <td>{{ e.primeiro_bimestre.primeira_nota_História }}</td>
-                    <td>{{ e.segundo_bimestre.segunda_nota_História }}</td>
-                    <td>{{ e.terceiro_bimestre.terceira_nota_História }}</td>
-                    <td>{{ e.quarto_bimestre.quarta_nota_História }}</td>
-                    <td>{{ e.faltas_hist }}</td>
-                    <td>{{ e.media_hist }}</td>
-                </tr>
-                <tr id="geo">
-                    <td>Geografia</td>
-                    <td>{{ e.primeiro_bimestre.primeira_nota_Geografia }}</td>
-                    <td>{{ e.segundo_bimestre.segunda_nota_Geografia }}</td>
-                    <td>{{ e.terceiro_bimestre.terceira_nota_Geografia }}</td>
-                    <td>{{ e.quarto_bimestre.quarta_nota_Geografia }}</td>
-                    <td>{{ e.faltas_geo }}</td>
-                    <td>{{ e.media_geo }}</td>
-                </tr>
-                <tr id="cien">
-                    <td>Ciências</td>
-                    <td>{{ e.primeiro_bimestre.primeira_nota_Ciências }}</td>
-                    <td>{{ e.segundo_bimestre.segunda_nota_Ciências}}</td>
-                    <td>{{ e.terceiro_bimestre.terceira_nota_Ciências }}</td>
-                    <td>{{ e.quarto_bimestre.quarta_nota_Ciências }}</td>
-                    <td>{{ e.faltas_cien }}</td>
-                    <td>{{ e.media_cien }}</td>
-                </tr>
-            </tbody>
-        </table>
-        
+<div class="container">
+    <header>
+        <nav id="nav-bar">
+            <h1 id="titulo"><a href="{% url 'index' %}">Sistema Avaliativo</a></h1>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a class="links" id="princ" href="{% url 'index' %}">Início</a></li>
+                <li><a class="links" href="{% url 'lista' %}">Notas</a></li>
+                <li><a class="links" href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="nome">Aluno: {{ aluninho.nome_aluno }}</h1>
+        {% for e in final %}
+            {% ifequal e.aluno.nome_aluno aluninho.nome_aluno %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Componentes Curriculares</th>
+                        <th>1º Bim</th>
+                        <th>2º Bim</th>
+                        <th>3° Bim</th>
+                        <th>4° Bim</th>
+                        <th>Total de Faltas</th>
+                        <th>Nota Final</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="port">
+                        <td>Português</td>
+                        <td>{{ e.primeiro_bimestre.primeira_nota_Português }}</td>
+                        <td>{{ e.segundo_bimestre.segunda_nota_Português }}</td>
+                        <td>{{ e.terceiro_bimestre.terceira_nota_Português }}</td>
+                        <td>{{ e.quarto_bimestre.quarta_nota_Português }}</td>
+                        <td>{{ e.faltas_port}}</td>
+                        <td>{{ e.media_port }}</td>
+                    </tr>
+                    <tr id="mat">
+                        <td>Matemática</td>
+                        <td>{{ e.primeiro_bimestre.primeira_nota_Matemática }}</td>
+                        <td>{{ e.segundo_bimestre.segunda_nota_Matemática }}</td>
+                        <td>{{ e.terceiro_bimestre.terceira_nota_Matemática }}</td>
+                        <td>{{ e.quarto_bimestre.quarta_nota_Matemática }}</td>
+                        <td>{{ e.faltas_mat }}</td>
+                        <td>{{ e.media_mat }}</td>
+                    </tr>
+                    <tr id="hist">
+                        <td>História</td>
+                        <td>{{ e.primeiro_bimestre.primeira_nota_História }}</td>
+                        <td>{{ e.segundo_bimestre.segunda_nota_História }}</td>
+                        <td>{{ e.terceiro_bimestre.terceira_nota_História }}</td>
+                        <td>{{ e.quarto_bimestre.quarta_nota_História }}</td>
+                        <td>{{ e.faltas_hist }}</td>
+                        <td>{{ e.media_hist }}</td>
+                    </tr>
+                    <tr id="geo">
+                        <td>Geografia</td>
+                        <td>{{ e.primeiro_bimestre.primeira_nota_Geografia }}</td>
+                        <td>{{ e.segundo_bimestre.segunda_nota_Geografia }}</td>
+                        <td>{{ e.terceiro_bimestre.terceira_nota_Geografia }}</td>
+                        <td>{{ e.quarto_bimestre.quarta_nota_Geografia }}</td>
+                        <td>{{ e.faltas_geo }}</td>
+                        <td>{{ e.media_geo }}</td>
+                    </tr>
+                    <tr id="cien">
+                        <td>Ciências</td>
+                        <td>{{ e.primeiro_bimestre.primeira_nota_Ciências }}</td>
+                        <td>{{ e.segundo_bimestre.segunda_nota_Ciências}}</td>
+                        <td>{{ e.terceiro_bimestre.terceira_nota_Ciências }}</td>
+                        <td>{{ e.quarto_bimestre.quarta_nota_Ciências }}</td>
+                        <td>{{ e.faltas_cien }}</td>
+                        <td>{{ e.media_cien }}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </main>       
         {% endifequal %}
     {% endfor %}
 
-    <div>
-        <a href="{% url 'lista' %}">Voltar para a lista de alunos</a> <br>
-        <a href="{% url 'index' %}">Voltar para a página inicial</a> 
-    </div>
+</div>   
+
+<script src="{% static 'js/scripts.js' %}"></script>
+
 {% endblock %}
