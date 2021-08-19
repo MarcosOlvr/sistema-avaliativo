@@ -8,32 +8,76 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
 }
 body{
-    font-family: 'Rubik', sans-serif;
-    display: flex;
-    flex-wrap: wrap;
+    overflow-x:hidden;
 }
-header{
-    background-color: rgba(135, 207, 235, 0.637);
+
+.links{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+#nav-bar{
+    background-color: #23232e;
     padding: 5px;
     width: 100vw;
-    height: 13vh;
+    height: 14vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li{
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+.mobile-menu div{
+    width: 32px;
+    height: 2px;
+    background: white;
+    margin: 8px;
+    transition: 0.3s;
 }
 #titulo{
-    left: 7vw;
     margin-top: 10px;
-    top: 1vh;
     position: relative;
 }
 #titulo > a{
     text-decoration: none;
-    color: black;
+    color: white;
     font-family: 'Merienda', cursive;
     font-size: 35px;
 }
-@media(max-width:760px) {
-/* ADICIONAR AQUI UM MENU DE OPÇÕES */
+@media(max-width:800px) {
+.nav-list{
+    position: absolute;
+    top: 14vh;
+    right: 0;
+    width: 35vw;
+    height: 92vh;
+    background: #23232e;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+}
+.nav-list li {
+    margin-left: 0;
+}
+.mobile-menu {
+    display: block;
+}
 .texto-intro1{
     font-size: 40px;
     top: 30vh;
@@ -41,9 +85,10 @@ header{
     position: relative;
     margin-bottom: 20px;
     background-color: rgba(0, 0, 0, 0.555);
-    width: 400px;
+    width: 250px;
+    font-size: 25px;
     color: white;
-    height: 10vh;
+    height: 7vh;
     padding: 10px;
 }
 .texto-intro2{
@@ -53,26 +98,15 @@ header{
     position: relative;
     margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.555);
-    width: 480px;
+    width: 310px;
+    font-size: 25px;
     color: white;
-    height: 10vh;
+    height: 7vh;
     padding: 10px;
 }
 }
 
-@media(min-width:760px){
-.links{
-    left:65vw;
-    position: relative;
-    bottom: 4vh;
-    font-size: 17px;
-    text-decoration: none;
-    color: black;
-    margin: auto;
-    text-transform: uppercase;
-    padding: 20px;
-    text-align: center;
-}
+@media(min-width:800px){
 .texto-intro1{
     font-size: 40px;
     top: 30vh;
@@ -100,15 +134,43 @@ header{
 }
 
 .links:hover{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     padding-bottom: 1px;
+    opacity: 0.7;
 }
 #princ {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
     padding-bottom: 1px;
 }
 .container {
     background-image: url(https://www.buenosaireseducacional.com.br/wp-content/uploads/2019/07/saber-espanhol-para-estudar-na-argentina.png);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+.nav-list.active {
+    transform: translateX(0);
+}
+
+@keyframes navLinkFade{
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+.mobile-menu.active .line2 {
+    opacity: 0;
+}
+.mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
 }
 
 </style>
@@ -117,15 +179,24 @@ header{
 
 {% block title %}Sistema Avaliativo{% endblock %}
 
+{% load static %}
+
 {% block body %}
 
 <div class="container">
 <header>
-    <nav>
+    <nav id="nav-bar">
         <h1 id="titulo"><a href="{% url 'index' %}">Sistema Avaliativo</a></h1>
-        <a class="links" id="princ" href="{% url 'index' %}">Início</a>
-        <a class="links" href="{% url 'lista' %}">Notas</a>
-        <a class="links" href="{% url 'logout' %}">Sair</a>
+        <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a class="links" id="princ" href="{% url 'index' %}">Início</a></li>
+            <li><a class="links" href="{% url 'lista' %}">Notas</a></li>
+            <li><a class="links" href="{% url 'logout' %}">Sair</a></li>
+        </ul>
     </nav>
 </header>
 
@@ -135,5 +206,7 @@ header{
 </div>
 
 </div>
+
+<script src="{% static 'js/scripts.js' %}"></script>
 
 {% endblock %}
