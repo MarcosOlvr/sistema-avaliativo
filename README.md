@@ -1,4 +1,4 @@
-# SISTEMA AVALIATIVO
+# Sistema Avaliativo
 
 Este projeto tem como intuito criar um sistema onde posso colocar nome de alunos, notas por matérias, e quantidade de faltas de um aluno no bimestre, para ajudar minha mãe.
 
