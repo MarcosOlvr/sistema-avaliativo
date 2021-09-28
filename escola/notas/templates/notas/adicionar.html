@@ -192,13 +192,22 @@ main{
 .mobile-menu.active .line3 {
     transform: rotate(45deg) translate(-5px, -7px);
 }
-
 .add > p > a:hover{
     border-bottom: 2px solid cornflowerblue;
     padding-bottom: 1px;
     opacity: 0.7;
 }
-
+#voltar-lista{
+    color: black;
+    font-style: italic;
+    font-size: 18px;
+    text-decoration: none;
+}
+#voltar-lista:hover{
+    opacity: 0.7;
+    border-bottom: 2px solid black;
+    padding-bottom: 1px;
+}
 </style>
 
 {% extends 'notas/layout.html' %}
@@ -234,6 +243,9 @@ main{
             <p>Notas e faltas do QUARTO bimestre:<a href="http://127.0.0.1:8000/admin/notas/quartobimestre/add/?_to_field=id&_popup=1" onClick="window.open(this.href,'pagename','resizable,height=600,width=600'); return false;" target="_blank">Adicionar</a></p>
             <p>Inserir na tabela: <a href="http://127.0.0.1:8000/admin/notas/final/add/" target="_blank" onClick="window.open(this.href,'pagename','resizable,height=600,width=600'); return false;">Adicionar</a></p>
         </div>
+        <div>
+            <a href="{% url 'lista' %}" id="voltar-lista">Voltar para a lista de alunos</a>
+        </div>  
     </main>
 
 </div>

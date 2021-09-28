@@ -160,6 +160,17 @@ table{
 .mobile-menu.active .line3 {
     transform: rotate(45deg) translate(-5px, -7px);
 }
+#voltar-lista{
+    color: black;
+    font-style: italic;
+    font-size: 18px;
+    text-decoration: none;
+}
+#voltar-lista:hover{
+    opacity: 0.7;
+    border-bottom: 2px solid black;
+    padding-bottom: 1px;
+}
 
 th {
     padding: 3px;
@@ -253,10 +264,12 @@ th {
                     </tr>
                 </tbody>
             </table>
+            <div>
+                <a href="{% url 'lista' %}" id="voltar-lista">Voltar para a lista de alunos</a>
+            </div>    
     </main>       
         {% endifequal %}
     {% endfor %}
-
 </div>   
 
 <script src="{% static 'js/scripts.js' %}"></script>
