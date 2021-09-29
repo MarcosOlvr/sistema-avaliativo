@@ -11,86 +11,108 @@ class Aluno(models.Model):
     def __str__(self):
         return f"{self.nome_aluno}"
 
+# Notas e faltas do Primeiro Bimestre
 class PrimeiroBimestre(models.Model):
-    primeira_nota_Português = models.FloatField()
+    primeira_nota_Português = models.FloatField(verbose_name="Nota de Língua Portuguesa")
     
-    primeira_nota_Matemática = models.FloatField()
+    primeira_nota_Matemática = models.FloatField(verbose_name="Nota de Matemática")
     
-    primeira_nota_História = models.FloatField()
+    primeira_nota_História = models.FloatField(verbose_name="Nota de História")
     
-    primeira_nota_Geografia = models.FloatField()
+    primeira_nota_Geografia = models.FloatField(verbose_name="Nota de Geografia")
     
-    primeira_nota_Ciências = models.FloatField()
+    primeira_nota_Ciências = models.FloatField(verbose_name="Nota de Ciências")
 
-    primeiro_bimestre_faltas_Português = models.IntegerField()
-    primeiro_bimestre_faltas_Matemática = models.IntegerField()
-    primeiro_bimestre_faltas_História = models.IntegerField()
-    primeiro_bimestre_faltas_Geografia = models.IntegerField()
-    primeiro_bimestre_faltas_Ciências = models.IntegerField()
+    primeiro_bimestre_faltas_Português = models.IntegerField(verbose_name="Faltas na aula de Língua Portuguesa")
+    primeiro_bimestre_faltas_Matemática = models.IntegerField(verbose_name="Faltas na aula de Matemática")
+    primeiro_bimestre_faltas_História = models.IntegerField(verbose_name="Faltas na aula de História")
+    primeiro_bimestre_faltas_Geografia = models.IntegerField(verbose_name="Faltas na aula de Geografia")
+    primeiro_bimestre_faltas_Ciências = models.IntegerField(verbose_name="Faltas na aula de Ciências")
+
+    class Meta:
+        verbose_name = 'Primeiro Bimestre'
+        verbose_name_plural = 'Primeiro Bimestre'
 
     def __str__(self):
         return f"Notas primeiro bimestre: {self.primeira_nota_Português} | {self.primeira_nota_Matemática} | {self.primeira_nota_História} | {self.primeira_nota_Geografia} | {self.primeira_nota_Ciências}"
     
+# Notas e faltas do Segundo Bimestre    
 class SegundoBimestre(models.Model):
-    segunda_nota_Português = models.FloatField()
+    segunda_nota_Português = models.FloatField(verbose_name="Nota de Língua Portuguesa")
     
-    segunda_nota_Matemática = models.FloatField()
+    segunda_nota_Matemática = models.FloatField(verbose_name="Nota de Matemática")
 
-    segunda_nota_História = models.FloatField()
+    segunda_nota_História = models.FloatField(verbose_name="Nota de História")
 
-    segunda_nota_Geografia = models.FloatField()
+    segunda_nota_Geografia = models.FloatField(verbose_name="Nota de Geografia")
 
-    segunda_nota_Ciências = models.FloatField()
+    segunda_nota_Ciências = models.FloatField(verbose_name="Nota de Ciências")
 
-    segundo_bimestre_faltas_Português = models.IntegerField()
-    segundo_bimestre_faltas_Matemática = models.IntegerField()
-    segundo_bimestre_faltas_História = models.IntegerField()
-    segundo_bimestre_faltas_Geografia = models.IntegerField()
-    segundo_bimestre_faltas_Ciências = models.IntegerField()
+    segundo_bimestre_faltas_Português = models.IntegerField(verbose_name="Faltas na aula de Língua Portuguesa")
+    segundo_bimestre_faltas_Matemática = models.IntegerField(verbose_name="Faltas na aula de Matemática")
+    segundo_bimestre_faltas_História = models.IntegerField(verbose_name="Faltas na aula de História")
+    segundo_bimestre_faltas_Geografia = models.IntegerField(verbose_name="Faltas na aula de Geografia")
+    segundo_bimestre_faltas_Ciências = models.IntegerField(verbose_name="Faltas na aula de Ciências")
+
+    class Meta:
+        verbose_name = 'Segundo Bimestre'
+        verbose_name_plural = 'Segundo Bimestre'
 
     def __str__(self):
         return f"Notas segundo bimestre: {self.segunda_nota_Português} | {self.segunda_nota_Matemática} | {self.segunda_nota_História} | {self.segunda_nota_Geografia} | {self.segunda_nota_Ciências}"
 
+# Notas e faltas do Terceiro Bimestre
 class TerceiroBimestre(models.Model):
-    terceira_nota_Português = models.FloatField()
+    terceira_nota_Português = models.FloatField(verbose_name="Nota de Língua Portuguesa")
     
-    terceira_nota_Matemática = models.FloatField()
+    terceira_nota_Matemática = models.FloatField(verbose_name="Nota de Matemática")
 
-    terceira_nota_História = models.FloatField()
+    terceira_nota_História = models.FloatField(verbose_name="Nota de História")
 
-    terceira_nota_Geografia = models.FloatField()
+    terceira_nota_Geografia = models.FloatField(verbose_name="Nota de Geografia")
 
-    terceira_nota_Ciências = models.FloatField()
+    terceira_nota_Ciências = models.FloatField(verbose_name="Nota de Ciências")
 
-    terceiro_bimestre_faltas_Português = models.IntegerField()
-    terceiro_bimestre_faltas_Matemática = models.IntegerField()
-    terceiro_bimestre_faltas_História = models.IntegerField()
-    terceiro_bimestre_faltas_Geografia = models.IntegerField()
-    terceiro_bimestre_faltas_Ciências = models.IntegerField()
+    terceiro_bimestre_faltas_Português = models.IntegerField(verbose_name="Faltas na aula de Língua Portuguesa")
+    terceiro_bimestre_faltas_Matemática = models.IntegerField(verbose_name="Faltas na aula de Matemática")
+    terceiro_bimestre_faltas_História = models.IntegerField(verbose_name="Faltas na aula de História")
+    terceiro_bimestre_faltas_Geografia = models.IntegerField(verbose_name="Faltas na aula de Geografia")
+    terceiro_bimestre_faltas_Ciências = models.IntegerField(verbose_name="Faltas na aula de Ciências")
+
+    class Meta:
+        verbose_name = 'Terceiro Bimestre'
+        verbose_name_plural = 'Terceiro Bimestre'
 
     def __str__(self):
         return f"Notas terceiro bimestre: {self.terceira_nota_Português} | {self.terceira_nota_Matemática} | {self.terceira_nota_História} | {self.terceira_nota_Geografia} | {self.terceira_nota_Ciências}"
 
+# Notas e faltas do Quarto Bimestre
 class QuartoBimestre(models.Model):
-    quarta_nota_Português = models.FloatField()
+    quarta_nota_Português = models.FloatField(verbose_name="Nota de Língua Portuguesa")
     
-    quarta_nota_Matemática = models.FloatField()
+    quarta_nota_Matemática = models.FloatField(verbose_name="Nota de Matemática")
 
-    quarta_nota_História = models.FloatField()
+    quarta_nota_História = models.FloatField(verbose_name="Nota de História")
 
-    quarta_nota_Geografia = models.FloatField()
+    quarta_nota_Geografia = models.FloatField(verbose_name="Nota de Geografia")
 
-    quarta_nota_Ciências = models.FloatField()
+    quarta_nota_Ciências = models.FloatField(verbose_name="Nota de Ciências")
 
-    quarto_bimestre_faltas_Português = models.IntegerField()
-    quarto_bimestre_faltas_Matemática = models.IntegerField()
-    quarto_bimestre_faltas_História = models.IntegerField()
-    quarto_bimestre_faltas_Geografia = models.IntegerField()
-    quarto_bimestre_faltas_Ciências = models.IntegerField()
+    quarto_bimestre_faltas_Português = models.IntegerField(verbose_name="Faltas na aula de Língua Portuguesa")
+    quarto_bimestre_faltas_Matemática = models.IntegerField(verbose_name="Faltas na aula de Matemática")
+    quarto_bimestre_faltas_História = models.IntegerField(verbose_name="Faltas na aula de História")
+    quarto_bimestre_faltas_Geografia = models.IntegerField(verbose_name="Faltas na aula de Geografia")
+    quarto_bimestre_faltas_Ciências = models.IntegerField(verbose_name="Faltas na aula de Ciências")
+
+    class Meta:
+        verbose_name = 'Quarto Bimestre'
+        verbose_name_plural = 'Quarto Bimestre'
 
     def __str__(self):
         return f"Notas quarto bimestre: {self.quarta_nota_Português} | {self.quarta_nota_Matemática} | {self.quarta_nota_História} | {self.quarta_nota_Geografia} | {self.quarta_nota_Ciências}"
 
+# Junção das notas e nome do aluno
+# Calculo da média de cada matéria
 class Final(models.Model):
     aluno = ForeignKey(Aluno, on_delete=models.CASCADE, related_name="aluno")
 
@@ -142,6 +164,10 @@ class Final(models.Model):
     
     def faltas_cien(self):
        return (self.primeiro_bimestre.primeiro_bimestre_faltas_Ciências + self.segundo_bimestre.segundo_bimestre_faltas_Ciências + self.terceiro_bimestre.terceiro_bimestre_faltas_Ciências + self.quarto_bimestre.quarto_bimestre_faltas_Ciências) 
+
+    class Meta:
+        verbose_name = 'Adicionar notas ao aluno'
+        verbose_name_plural = 'Adicionar notas ao aluno'
 
     def __str__(self):
         return f"{self.aluno}"
