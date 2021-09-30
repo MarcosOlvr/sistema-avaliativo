@@ -17,12 +17,12 @@ def lista(request):
         "alunos": Aluno.objects.all()
     })
 
-def teste(request, aluno_id):
+def aluno_nota(request, aluno_id):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
     
     aluninho = Aluno.objects.get(pk=aluno_id)
-    return render(request, "notas/teste.html", {
+    return render(request, "notas/aluno_nota.html", {
         "aluninho": aluninho,
         "final": Final.objects.all()
     })
@@ -104,6 +104,6 @@ def adicionar(request):
             f.quarto_bimestre = bi4
             f.save()
 
-            return redirect ("notas/aluno")
+            return redirect("lista")
     
     return render(request, "notas/adicionar.html")

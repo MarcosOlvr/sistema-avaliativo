@@ -207,7 +207,7 @@ a{
         <tr>
             <td>
                 <p>{{ aluno }}</p>
-                <a href="{% url 'teste' aluno.id %}" class="ver-mais">Ver mais informações</a>
+                <a href="{% url 'aluno_nota' aluno.id %}" class="ver-mais">Ver mais informações</a>
             </td>
         </tr>
         {% empty %}
