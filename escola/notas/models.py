@@ -23,11 +23,7 @@ class PrimeiroBimestre(models.Model):
     
     primeira_nota_Ciências = models.FloatField(verbose_name="Nota de Ciências")
 
-    primeiro_bimestre_faltas_Português = models.IntegerField(verbose_name="Faltas na aula de Língua Portuguesa")
-    primeiro_bimestre_faltas_Matemática = models.IntegerField(verbose_name="Faltas na aula de Matemática")
-    primeiro_bimestre_faltas_História = models.IntegerField(verbose_name="Faltas na aula de História")
-    primeiro_bimestre_faltas_Geografia = models.IntegerField(verbose_name="Faltas na aula de Geografia")
-    primeiro_bimestre_faltas_Ciências = models.IntegerField(verbose_name="Faltas na aula de Ciências")
+    primeiro_bimestre_faltas = models.IntegerField(verbose_name="Faltas no Bimestre")
 
     class Meta:
         verbose_name = 'Primeiro Bimestre'
@@ -48,11 +44,7 @@ class SegundoBimestre(models.Model):
 
     segunda_nota_Ciências = models.FloatField(verbose_name="Nota de Ciências")
 
-    segundo_bimestre_faltas_Português = models.IntegerField(verbose_name="Faltas na aula de Língua Portuguesa")
-    segundo_bimestre_faltas_Matemática = models.IntegerField(verbose_name="Faltas na aula de Matemática")
-    segundo_bimestre_faltas_História = models.IntegerField(verbose_name="Faltas na aula de História")
-    segundo_bimestre_faltas_Geografia = models.IntegerField(verbose_name="Faltas na aula de Geografia")
-    segundo_bimestre_faltas_Ciências = models.IntegerField(verbose_name="Faltas na aula de Ciências")
+    segundo_bimestre_faltas = models.IntegerField(verbose_name="Faltas no Bimestre")
 
     class Meta:
         verbose_name = 'Segundo Bimestre'
@@ -73,11 +65,7 @@ class TerceiroBimestre(models.Model):
 
     terceira_nota_Ciências = models.FloatField(verbose_name="Nota de Ciências")
 
-    terceiro_bimestre_faltas_Português = models.IntegerField(verbose_name="Faltas na aula de Língua Portuguesa")
-    terceiro_bimestre_faltas_Matemática = models.IntegerField(verbose_name="Faltas na aula de Matemática")
-    terceiro_bimestre_faltas_História = models.IntegerField(verbose_name="Faltas na aula de História")
-    terceiro_bimestre_faltas_Geografia = models.IntegerField(verbose_name="Faltas na aula de Geografia")
-    terceiro_bimestre_faltas_Ciências = models.IntegerField(verbose_name="Faltas na aula de Ciências")
+    terceiro_bimestre_faltas = models.IntegerField(verbose_name="Faltas no Bimestre")
 
     class Meta:
         verbose_name = 'Terceiro Bimestre'
@@ -98,11 +86,7 @@ class QuartoBimestre(models.Model):
 
     quarta_nota_Ciências = models.FloatField(verbose_name="Nota de Ciências")
 
-    quarto_bimestre_faltas_Português = models.IntegerField(verbose_name="Faltas na aula de Língua Portuguesa")
-    quarto_bimestre_faltas_Matemática = models.IntegerField(verbose_name="Faltas na aula de Matemática")
-    quarto_bimestre_faltas_História = models.IntegerField(verbose_name="Faltas na aula de História")
-    quarto_bimestre_faltas_Geografia = models.IntegerField(verbose_name="Faltas na aula de Geografia")
-    quarto_bimestre_faltas_Ciências = models.IntegerField(verbose_name="Faltas na aula de Ciências")
+    quarto_bimestre_faltas = models.IntegerField(verbose_name="Faltas no Bimestre")
 
     class Meta:
         verbose_name = 'Quarto Bimestre'
@@ -149,21 +133,6 @@ class Final(models.Model):
         cien = (self.primeiro_bimestre.primeira_nota_Ciências + self.segundo_bimestre.segunda_nota_Ciências + self.terceiro_bimestre.terceira_nota_Ciências + self.quarto_bimestre.quarta_nota_Ciências)
 
         return round((cien)) / 4
-
-    def faltas_port(self):
-       return (self.primeiro_bimestre.primeiro_bimestre_faltas_Português + self.segundo_bimestre.segundo_bimestre_faltas_Português + self.terceiro_bimestre.terceiro_bimestre_faltas_Português + self.quarto_bimestre.quarto_bimestre_faltas_Português)
-    
-    def faltas_mat(self):
-       return (self.primeiro_bimestre.primeiro_bimestre_faltas_Matemática + self.segundo_bimestre.segundo_bimestre_faltas_Matemática + self.terceiro_bimestre.terceiro_bimestre_faltas_Matemática + self.quarto_bimestre.quarto_bimestre_faltas_Matemática)
-    
-    def faltas_hist(self):
-       return (self.primeiro_bimestre.primeiro_bimestre_faltas_História + self.segundo_bimestre.segundo_bimestre_faltas_História + self.terceiro_bimestre.terceiro_bimestre_faltas_História + self.quarto_bimestre.quarto_bimestre_faltas_História)
-    
-    def faltas_geo(self):
-       return (self.primeiro_bimestre.primeiro_bimestre_faltas_Geografia + self.segundo_bimestre.segundo_bimestre_faltas_Geografia + self.terceiro_bimestre.terceiro_bimestre_faltas_Geografia + self.quarto_bimestre.quarto_bimestre_faltas_Geografia)
-    
-    def faltas_cien(self):
-       return (self.primeiro_bimestre.primeiro_bimestre_faltas_Ciências + self.segundo_bimestre.segundo_bimestre_faltas_Ciências + self.terceiro_bimestre.terceiro_bimestre_faltas_Ciências + self.quarto_bimestre.quarto_bimestre_faltas_Ciências) 
 
     class Meta:
         verbose_name = 'Adicionar notas ao aluno'

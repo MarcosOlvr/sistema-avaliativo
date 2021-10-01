@@ -18,12 +18,14 @@
     }
     .notas{
         border: 1px solid black;
-        margin: 7px;
+        width: 40vw;
+        margin: 10px auto;
         padding: 10px;
     }
     .faltas{
         border: 1px solid black;
-        margin: 7px;
+        width: 40vw;
+        margin: 10px auto;
         padding: 10px;
     }
     h1{
@@ -31,7 +33,8 @@
     }
     .aluno{
         border: 1px solid black;
-        margin: 10px;
+        width: 40vw;
+        margin: 10px auto;
         padding: 5px;
     }
     #enviar{
@@ -70,7 +73,7 @@
     <form action="" method="POST">
         {% csrf_token %}
         <div class="aluno">
-            <h1>Nome do aluno: <input type="text" name="nome_aluno" id=""></h3>
+            <h1>Nome do aluno: <input type="text" name="nome_aluno" id="" required></h3>
         </div>
         <div class="primeirobi">
             <h1>Notas e faltas do PRIMEIRO BIMESTRE</h1>
@@ -82,11 +85,7 @@
                 <h3>Nota de Ciências:  <input type="number" name="bi1_nota_cien" id="" min="0" step="0.01" max="10"></h3>
             </div>
             <div class="faltas">
-                <h3>Faltas em Língua Portuguesa:  <input type="number" name="bi1_faltas_port" id="" min=0 max="20"></h3>
-                <h3>Faltas em Matemática:  <input type="number" name="bi1_faltas_mat" id="" min="0" max="20"></h3>
-                <h3>Faltas em História:  <input type="number" name="bi1_faltas_hist" id="" min="0" max="20"></h3>
-                <h3>Faltas em Geografia:  <input type="number" name="bi1_faltas_geo" id="" min="0" max="20"></h3>
-                <h3>Faltas em Ciências:  <input type="number" name="bi1_faltas_cien" id="" min="0" max="20"></h3>
+                <h3>Faltas no Bimestre:  <input type="number" name="bi1_faltas" id="" min=0 max="20"></h3>
             </div>
         </div>
         <div class="segundobi">
@@ -99,11 +98,7 @@
                 <h3>Nota de Ciências:  <input type="number" name="bi2_nota_cien" id="" min="0" step="0.01" max="10"></h3>
             </div>
             <div class="faltas">
-                <h3>Faltas em Língua Portuguesa:  <input type="number" name="bi2_faltas_port" id=""min=0 max="20"></h3>
-                <h3>Faltas em Matemática:  <input type="number" name="bi2_faltas_mat" id=""min="0" max="20"></h3>
-                <h3>Faltas em História:  <input type="number" name="bi2_faltas_hist" id=""min="0" max="20"></h3>
-                <h3>Faltas em Geografia:  <input type="number" name="bi2_faltas_geo" id=""min="0" max="20"></h3>
-                <h3>Faltas em Ciências:  <input type="number" name="bi2_faltas_cien" id=""min="0" max="20"></h3>
+                <h3>Faltas no Bimestre:  <input type="number" name="bi2_faltas" id=""min=0 max="20"></h3>
             </div>
         </div>
         <div class="terceirobi">
@@ -116,11 +111,7 @@
                 <h3>Nota de Ciências:  <input type="number" name="bi3_nota_cien" id="" min="0" step="0.01" max="10"></h3>
             </div>
             <div class="faltas">
-                <h3>Faltas em Língua Portuguesa:  <input type="number" name="bi3_faltas_port" id=""min=0 max="20"></h3>
-                <h3>Faltas em Matemática:  <input type="number" name="bi3_faltas_mat" id=""min="0" max="20"></h3>
-                <h3>Faltas em História:  <input type="number" name="bi3_faltas_hist" id=""min="0" max="20"></h3>
-                <h3>Faltas em Geografia:  <input type="number" name="bi3_faltas_geo" id=""min="0" max="20"></h3>
-                <h3>Faltas em Ciências:  <input type="number" name="bi3_faltas_cien" id=""min="0" max="20"></h3>
+                <h3>Faltas no Bimestre:  <input type="number" name="bi3_faltas" id=""min=0 max="20"></h3>
             </div>
         </div>
         <div class="segundobi">
@@ -133,11 +124,7 @@
                 <h3>Nota de Ciências:  <input type="number" name="bi4_nota_cien" id="" min="0" step="0.01" max="10"></h3>
             </div> 
             <div class="faltas">
-                <h3>Faltas em Língua Portuguesa:  <input type="number" name="bi4_faltas_port" id=""min="0" max="20"></h3>
-                <h3>Faltas em Matemática:  <input type="number" name="bi4_faltas_mat" id=""min="0" max="20"></h3>
-                <h3>Faltas em História:  <input type="number" name="bi4_faltas_hist" id=""min="0" max="20"></h3>
-                <h3>Faltas em Geografia:  <input type="number" name="bi4_faltas_geo" id=""min="0" max="20"></h3>
-                <h3>Faltas em Ciências:  <input type="number" name="bi4_faltas_cien" id=""min="0" max="20"></h3>
+                <h3>Faltas no Bimestre:  <input type="number" name="bi4_faltas" id=""min="0" max="20"></h3>
             </div>
         </div>
         <input type="submit" value="Enviar" id="enviar">

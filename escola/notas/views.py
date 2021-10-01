@@ -43,11 +43,7 @@ def adicionar(request):
             bi1.primeira_nota_Geografia = request.POST.get("bi1_nota_geo")
             bi1.primeira_nota_Ciências = request.POST.get("bi1_nota_cien")
             #salvando FALTAS do PRIMEIRO bimestre
-            bi1.primeiro_bimestre_faltas_Português = request.POST.get("bi1_faltas_port")
-            bi1.primeiro_bimestre_faltas_Matemática = request.POST.get("bi1_faltas_mat")
-            bi1.primeiro_bimestre_faltas_História = request.POST.get("bi1_faltas_hist")
-            bi1.primeiro_bimestre_faltas_Geografia = request.POST.get("bi1_faltas_geo")
-            bi1.primeiro_bimestre_faltas_Ciências = request.POST.get("bi1_faltas_cien")
+            bi1.primeiro_bimestre_faltas = request.POST.get("bi1_faltas")
             bi1.save()
 
             #salvando NOTAS do SEGUNDO bimestre
@@ -58,11 +54,7 @@ def adicionar(request):
             bi2.segunda_nota_Geografia = request.POST.get("bi2_nota_geo")
             bi2.segunda_nota_Ciências = request.POST.get("bi2_nota_geo")
             #salvando FALTAS do SEGUNDO bimestre
-            bi2.segundo_bimestre_faltas_Português = request.POST.get("bi2_faltas_port")
-            bi2.segundo_bimestre_faltas_Matemática = request.POST.get("bi2_faltas_mat")
-            bi2.segundo_bimestre_faltas_História = request.POST.get("bi2_faltas_hist")
-            bi2.segundo_bimestre_faltas_Geografia = request.POST.get("bi2_faltas_geo")
-            bi2.segundo_bimestre_faltas_Ciências = request.POST.get("bi2_faltas_cien")
+            bi2.segundo_bimestre_faltas = request.POST.get("bi2_faltas")
             bi2.save()
 
             #salvando NOTAS do TERCEIRO bimestre
@@ -73,11 +65,7 @@ def adicionar(request):
             bi3.terceira_nota_Geografia = request.POST.get("bi3_nota_geo")
             bi3.terceira_nota_Ciências = request.POST.get("bi3_nota_geo")
             #salvando FALTAS do TERCEIRO bimestre
-            bi3.terceiro_bimestre_faltas_Português = request.POST.get("bi3_faltas_port")
-            bi3.terceiro_bimestre_faltas_Matemática = request.POST.get("bi3_faltas_mat")
-            bi3.terceiro_bimestre_faltas_História = request.POST.get("bi3_faltas_hist")
-            bi3.terceiro_bimestre_faltas_Geografia = request.POST.get("bi3_faltas_geo")
-            bi3.terceiro_bimestre_faltas_Ciências = request.POST.get("bi3_faltas_cien")
+            bi3.terceiro_bimestre_faltas = request.POST.get("bi3_faltas")
             bi3.save()
 
             #salvando NOTAS do QUARTO bimestre
@@ -88,11 +76,7 @@ def adicionar(request):
             bi4.quarta_nota_Geografia = request.POST.get("bi4_nota_geo")
             bi4.quarta_nota_Ciências = request.POST.get("bi4_nota_geo")
             #salvando FALTAS do QUARTO bimestre
-            bi4.quarto_bimestre_faltas_Português = request.POST.get("bi4_faltas_port")
-            bi4.quarto_bimestre_faltas_Matemática = request.POST.get("bi4_faltas_mat")
-            bi4.quarto_bimestre_faltas_História = request.POST.get("bi4_faltas_hist")
-            bi4.quarto_bimestre_faltas_Geografia = request.POST.get("bi4_faltas_geo")
-            bi4.quarto_bimestre_faltas_Ciências = request.POST.get("bi4_faltas_cien")
+            bi4.quarto_bimestre_faltas = request.POST.get("bi4_faltas")
             bi4.save()
 
             #adicionando na tabela

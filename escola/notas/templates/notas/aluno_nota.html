@@ -212,7 +212,6 @@ th {
                         <th>2º Bim</th>
                         <th>3° Bim</th>
                         <th>4° Bim</th>
-                        <th>Total de Faltas</th>
                         <th>Nota Final</th>
                     </tr>
                 </thead>
@@ -223,7 +222,6 @@ th {
                         <td>{{ e.segundo_bimestre.segunda_nota_Português }}</td>
                         <td>{{ e.terceiro_bimestre.terceira_nota_Português }}</td>
                         <td>{{ e.quarto_bimestre.quarta_nota_Português }}</td>
-                        <td>{{ e.faltas_port}}</td>
                         <td>{{ e.media_port }}</td>
                     </tr>
                     <tr id="mat">
@@ -232,7 +230,6 @@ th {
                         <td>{{ e.segundo_bimestre.segunda_nota_Matemática }}</td>
                         <td>{{ e.terceiro_bimestre.terceira_nota_Matemática }}</td>
                         <td>{{ e.quarto_bimestre.quarta_nota_Matemática }}</td>
-                        <td>{{ e.faltas_mat }}</td>
                         <td>{{ e.media_mat }}</td>
                     </tr>
                     <tr id="hist">
@@ -241,7 +238,6 @@ th {
                         <td>{{ e.segundo_bimestre.segunda_nota_História }}</td>
                         <td>{{ e.terceiro_bimestre.terceira_nota_História }}</td>
                         <td>{{ e.quarto_bimestre.quarta_nota_História }}</td>
-                        <td>{{ e.faltas_hist }}</td>
                         <td>{{ e.media_hist }}</td>
                     </tr>
                     <tr id="geo">
@@ -250,7 +246,6 @@ th {
                         <td>{{ e.segundo_bimestre.segunda_nota_Geografia }}</td>
                         <td>{{ e.terceiro_bimestre.terceira_nota_Geografia }}</td>
                         <td>{{ e.quarto_bimestre.quarta_nota_Geografia }}</td>
-                        <td>{{ e.faltas_geo }}</td>
                         <td>{{ e.media_geo }}</td>
                     </tr>
                     <tr id="cien">
@@ -259,8 +254,14 @@ th {
                         <td>{{ e.segundo_bimestre.segunda_nota_Ciências}}</td>
                         <td>{{ e.terceiro_bimestre.terceira_nota_Ciências }}</td>
                         <td>{{ e.quarto_bimestre.quarta_nota_Ciências }}</td>
-                        <td>{{ e.faltas_cien }}</td>
                         <td>{{ e.media_cien }}</td>
+                    </tr>
+                    <tr id="faltas">
+                        <td>Faltas</td>
+                        <td>{{ e.primeiro_bimestre.primeiro_bimestre_faltas }}</td>
+                        <td>{{ e.segundo_bimestre.segundo_bimestre_faltas }}</td>
+                        <td>{{ e.terceiro_bimestre.terceiro_bimestre_faltas }}</td>
+                        <td>{{ e.quarto_bimestre.quarto_bimestre_faltas }}</td>
                     </tr>
                 </tbody>
             </table>
