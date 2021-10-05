@@ -1,13 +1,12 @@
 from django.shortcuts import redirect, render
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from .forms import FinalForm, AlunoForm, PrimeiroBiForm, SegundoBiForm, TerceiroBiForm, QuartoBiForm
 
 from .models import Final, Aluno, PrimeiroBimestre, SegundoBimestre, TerceiroBimestre, QuartoBimestre
 
 # Create your views here.
 def index(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('login'))
     return render(request, "notas/index.html")
 
 def lista(request):
@@ -22,6 +21,20 @@ def aluno_nota(request, aluno_id):
         return HttpResponseRedirect(reverse('login'))
     
     aluninho = Aluno.objects.get(pk=aluno_id)
+
+    if request.method == 'POST':
+        final_aluno = Aluno.objects.get(pk=aluno_id)
+        final_bi1 = PrimeiroBimestre.objects.get(pk=aluno_id)
+        final_bi2 = SegundoBimestre.objects.get(pk=aluno_id)
+        final_bi3 = TerceiroBimestre.objects.get(pk=aluno_id)
+        final_bi4 = QuartoBimestre.objects.get(pk=aluno_id)
+        final_aluno.delete()
+        final_bi1.delete()
+        final_bi2.delete()
+        final_bi3.delete()
+        final_bi4.delete()
+        return redirect("lista")
+
     return render(request, "notas/aluno_nota.html", {
         "aluninho": aluninho,
         "final": Final.objects.all()
@@ -91,3 +104,44 @@ def adicionar(request):
             return redirect("lista")
     
     return render(request, "notas/adicionar.html")
+
+def update_nota(request, aluno_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('login'))
+    
+    aluno = Aluno.objects.get(pk=aluno_id)
+    primeiro = PrimeiroBimestre.objects.get(pk=aluno_id)
+    segundo = SegundoBimestre.objects.get(pk=aluno_id)
+    terceiro = TerceiroBimestre.objects.get(pk=aluno_id)
+    quarto = QuartoBimestre.objects.get(pk=aluno_id)
+    
+    form_aluno = AlunoForm(request.POST or None, instance=aluno)
+    form_primeiro = PrimeiroBiForm(request.POST or None, instance=primeiro)
+    form_segundo = SegundoBiForm(request.POST or None, instance=segundo)
+    form_terceiro = TerceiroBiForm(request.POST or None, instance=terceiro)
+    form_quarto = QuartoBiForm(request.POST or None, instance=quarto)
+
+    if form_aluno.is_valid():
+        form_aluno.save()
+    
+    if form_primeiro.is_valid():
+        form_primeiro.save()
+    
+    if form_segundo.is_valid():
+        form_segundo.save()
+    
+    if form_terceiro.is_valid():
+        form_terceiro.save()
+    
+    if form_quarto.is_valid():
+        form_quarto.save()
+        return redirect("lista")
+    
+    return render(request, 'notas/editar_nota.html',{
+        'form_aluno':form_aluno, 
+        'form_primeiro':form_primeiro,
+        'form_segundo':form_segundo,
+        'form_terceiro':form_terceiro,
+        'form_quarto':form_quarto,
+        'aluno':aluno
+    })

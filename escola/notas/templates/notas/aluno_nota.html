@@ -28,15 +28,15 @@ main{
     border-radius: 5px;
 }
 table{
-        border: 1px black solid;
-        text-align: center;
-        font-size: 20px;
+    border: 1px black solid;
+    text-align: center;
+    font-size: 20px;
     }
-    th{
-        border: 1px black solid;
+th{
+    border: 1px black solid;
     }
-    td{
-        border: 1px black solid;
+td{
+    border: 1px black solid;
     }
 .links{
     text-decoration: none;
@@ -171,7 +171,101 @@ table{
     border-bottom: 2px solid black;
     padding-bottom: 1px;
 }
-
+#remover_aluno{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color: red;
+    color: white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.418);
+    font-size: 14px;
+}
+#remover_aluno:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+#editar_nota{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color: yellow;
+    color: black;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.418);
+    margin-right: 20px;
+    font-size: 14px;
+}
+#link_editar {
+    text-decoration: none;
+}
+#editar_nota:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+.editar-remover{
+    display: flex;
+    position: relative;
+    left: 15vw;
+    top: 4vh;
+}
+#div-delete{
+    font-size: 15px;
+    display: flex;
+    position: relative;
+    left: 5vw;
+    top: -3vh;
+}
+#delete-button{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color: red;
+    color: white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.418);
+    font-size: 14px;
+    display: flex;
+    position: relative;
+    top: 4vh;
+    right: 6.8vw;
+    margin-right: 10px;
+}
+#cancelar-delete{
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid black;
+    background-color: yellow;
+    color: black;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.418);
+    font-size: 14px;
+    display: flex;
+    position: relative;
+    top: 7vh;
+    right: 15vw;
+}
+#delete-button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+#cancelar-delete:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+#cancelar-delete-div{
+    display: none;
+    position: relative;
+    top: -3vh;
+    left: 13vw;
+}
+#delete-button-div{
+    display: none;
+    position: relative;
+    left: 7vw;
+}
+#texto-confirm{
+    font-size: 15px;
+    display: flex;
+    position: relative;
+    top: -8vh;
+}
 th {
     padding: 3px;
 }
@@ -202,6 +296,22 @@ th {
     </header>
     <main>
         <h1 class="nome">Aluno: {{ aluninho.nome_aluno }}</h1>
+        <div class="editar-remover">
+            <div class="options">
+                <a href="{% url 'editar' aluninho.id %}" id="link_editar"><button id="editar_nota">Editar nota</button></a>
+                <button id="remover_aluno">Remover</button>
+            </div>
+            <div id="cancelar-delete-div">
+                <button id="cancelar-delete">Cancelar</button>
+            </div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div id="delete-button-div">
+                    <button id="delete-button">Confirmar</button>
+                </div>
+            </form>
+        </div>
+        <p id="texto-confirm"></p>
         {% for e in final %}
             {% ifequal e.aluno.nome_aluno aluninho.nome_aluno %}
             <table>
@@ -273,6 +383,7 @@ th {
     {% endfor %}
 </div>   
 
+<script src="{% static 'js/remover-aluno.js' %}"></script>
 <script src="{% static 'js/scripts.js' %}"></script>
 
 {% endblock %}

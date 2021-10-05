@@ -194,8 +194,12 @@ body{
         </div>
         <ul class="nav-list">
             <li><a class="links" id="princ" href="{% url 'index' %}">Início</a></li>
-            <li><a class="links" href="{% url 'lista' %}">Notas</a></li>
-            <li><a class="links" href="{% url 'logout' %}">Sair</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a class="links" href="{% url 'lista' %}">Notas</a></li>
+                <li><a class="links" href="{% url 'logout' %}">Sair</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}" class="links">Entrar</a></li>
+            {% endif %}
         </ul>
     </nav>
 </header>

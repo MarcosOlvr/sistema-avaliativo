@@ -1,8 +1,7 @@
 import abc
+from typing import final
 from django.db import models
 from django.db.models.fields.related import ForeignKey
-from numpy import ceil
-import numpy
 
 # Create your models here.
 class Aluno(models.Model):
@@ -133,6 +132,11 @@ class Final(models.Model):
         cien = (self.primeiro_bimestre.primeira_nota_Ciências + self.segundo_bimestre.segunda_nota_Ciências + self.terceiro_bimestre.terceira_nota_Ciências + self.quarto_bimestre.quarta_nota_Ciências)
 
         return round((cien)) / 4
+
+    def delete(self):
+        aluno = self.aluno
+        super(Final, self).delete()
+        aluno.aluno_id = Aluno.objects.filter(aluno=Aluno).count()
 
     class Meta:
         verbose_name = 'Adicionar notas ao aluno'
