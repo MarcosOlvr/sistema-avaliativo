@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+    
+    @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Rubik', sans-serif;
+    }
+    .container{
+        width: 60vw;
+        display: grid;
+        justify-content: center;
+        margin: -30px auto;
+        border: 1px solid black;
+    }
+    h1{
+        text-align: center;
+        margin: 10px auto;
+    }
+    #enviar{
+        display: flex;
+        padding: 15px 80px;
+        margin: 10px 15vw;
+        font-size: 16px;
+        background-color: rgba(128, 255, 0, 0.603);
+        border-radius: 3px;
+    }
+    #enviar:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+    input{
+        padding: 2px;
+        border-radius: 3px;
+        border: 1px solid black;
+        margin-left: 5px;
+        font-size: 14px;
+    }
+    #voltar-logo{
+        display: flex;
+        top: 8vh;
+        left: 8vw;
+        position: relative;
+    }
+    label{
+        display: flex;
+        padding: 3px;
+        font-size: 17px;
+    }
+    .bimestres{
+        border: 1px solid black;
+        padding: 5px;
+    }
+    @media (max-width:737px) {
+        .container{
+            border: none;
+        }
+        .bimestres{
+            border: none;
+        }
+        #voltar-logo{
+            left: 2vw;
+        }
+    }

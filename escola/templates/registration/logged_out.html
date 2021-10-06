@@ -1,83 +1,19 @@
-<style>
-    
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-
-body{
-  background-image: linear-gradient(to right,#23232e, #44445a);
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Rubik', sans-serif;
-  box-sizing: border-box;
-}
-
-@media(min-width:872px){
-
-.container {
-  background-image: url(https://media.istockphoto.com/vectors/vector-cartoon-empty-school-college-classroom-vector-id1165700888?k=6&m=1165700888&s=170667a&w=0&h=ZOV8mtyi3HlWfuk75HQPFu4wG8Z70aI978WPYmLBMd0=);
-  width: 550px;
-  height: 310px;
-  margin: 150px auto;
-  border-radius: 3px 0px 0px 3px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
-  left: -150px;
-  position: relative;
-}
-.cont{
-  margin: auto auto auto auto;
-  width: 320px;
-  height: 300px;
-  padding-top: 10px;
-  margin-top: 0px;
-  background-color: white;
-  padding-left: 30px;
-  border-radius: 0px 3px 3px 0px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
-  left: 400px;
-  position: relative;
-}
-}
-
-@media(max-width:871px){
-.cont{
-  margin: auto auto auto auto;
-  width: 320px;
-  height: 300px;
-  padding-top: 10px;
-  margin-top: 150px;
-  background-color: white;
-  padding-left: 30px;
-  border-radius: 0px 3px 3px 0px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
-}
-  }
-
-h1{
-    padding-left: 60px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    font-size: 40px;
-  }
-
-a{
-  text-decoration: none;
-  margin-left: 55px;
-  font-size: 20px;
-  color: red;
-}
-a:hover{
-    border-bottom: 2px solid red;
-    padding-bottom: 2px;
-    opacity: 0.7;
-    text-align: center;
-  }
-
-</style>
-
 {% extends "registration/base.html" %}
+
+{% load static %}
 
 {% block title %}Até logo!{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/logged_out.css' %}">
+<style>
+  @media(min-width:872px){
+    .container{
+      background-image: url("{% static 'images/logged_out.jpg' %}");
+    }
+  }
+</style>
+
 <div class="container">
   <div class="cont">
     <h1>Até logo!</h1>
