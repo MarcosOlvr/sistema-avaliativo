@@ -36,9 +36,9 @@
 
   @media(max-width:871px){
     .cont{
-    margin: auto auto auto auto;
-    width: 320px;
-    height: 310px;
+    margin: auto;
+    width: 300px;
+    height: 300px;
     padding-top: 30px;
     padding-bottom: 30px;
     margin-top: 120px;
@@ -46,15 +46,18 @@
     padding-left: 30px;
     border-radius: 0px 3px 3px 0px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
-}
   }
-
+  .container{
+    position: relative;
+    overflow: hidden;
+  }
+}
   .input_user_senha{
     padding-top: 20px;
     font-size: 18px;
   }
   h1{
-    padding-left: 50px;
+    padding-left: 43px;
   }
   #enviar{
     margin-left: 100px;

@@ -20,6 +20,22 @@ class MobileNavbar {
         this.navList.classList.toggle(this.activeClass);
         this.mobileMenu.classList.toggle(this.activeClass);
         this.animateLinks()
+
+        let conf = document.querySelector("#texto-confirm");
+        if (conf.style.display === 'none'){
+            conf.style.display = 'flex'
+        }
+        else{
+            conf.style.display = 'none';
+        }
+        
+        let btn = document.querySelector(".editar-remover");
+        if (btn.style.display === 'none'){
+            btn.style.display = 'flex';
+        }
+        else{
+            btn.style.display = 'none';
+        }
     }
 
     addClickEvent(){

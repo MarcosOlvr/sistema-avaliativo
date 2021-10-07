@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
     
-    @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap');
 
     *{
         margin: 0;
@@ -40,7 +40,7 @@
     }
     #voltar-logo{
         display: flex;
-        top: 8vh;
+        top: 12vh;
         left: 8vw;
         position: relative;
     }
@@ -55,9 +55,6 @@
     }
     @media (max-width:737px) {
         .container{
-            border: none;
-        }
-        .bimestres{
             border: none;
         }
         #voltar-logo{

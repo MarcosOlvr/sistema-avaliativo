@@ -48,19 +48,43 @@ body{
     transition: 0.3s;
 }
 #titulo{
-    margin-top: 10px;
+    top: 0.5vh;
     position: relative;
 }
 #titulo > a{
     text-decoration: none;
     color: white;
     font-family: 'Merienda', cursive;
-    font-size: 35px;
+    font-size: 2rem;
+}
+.caixa-texto{
+    display: flex;
+    position: relative;
+    color: white;
+    font-size: 1.3rem;
+}
+.texto-intro1{
+    position: relative;
+    width: auto;
+    height: auto;
+    top: 30vh;
+    left: 10vw;
+    background-color: rgba(0, 0, 0, 0.541);
+    padding: 10px;
+}
+.texto-intro2{
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 40vh;
+    left: 10vw;
+    background-color: rgba(0, 0, 0, 0.541);
+    padding: 10px;
 }
 @media(max-width:800px) {
 .nav-list{
     position: absolute;
-    top: 14vh;
+    top: 13vh;
     right: 0;
     width: 35vw;
     height: 92vh;
@@ -76,61 +100,33 @@ body{
 .mobile-menu {
     display: block;
 }
-.texto-intro1{
-    font-size: 40px;
-    top: 30vh;
-    left: 3vw;
-    position: relative;
-    margin-bottom: 20px;
-    background-color: rgba(0, 0, 0, 0.555);
-    width: 250px;
-    font-size: 25px;
+#titulo > a{
+    text-decoration: none;
     color: white;
-    height: 7vh;
-    padding: 10px;
+    font-family: 'Merienda', cursive;
+    font-size: 1.5rem;
+}
+.caixa-texto{
+    font-size: .8rem;
+    text-align: center;
+}
+.texto-intro1{
+    left: 3vw;
 }
 .texto-intro2{
-    font-size: 40px;
-    top: 30vh;
+    top: 40vh;
+    right: auto;
     left: 3vw;
-    position: relative;
-    margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.555);
-    width: 310px;
-    font-size: 25px;
-    color: white;
-    height: 7vh;
-    padding: 10px;
 }
 }
-
 @media(min-width:800px){
-.texto-intro1{
-    font-size: 40px;
-    top: 30vh;
-    left: 6vw;
-    position: relative;
-    margin-bottom: 20px;
-    background-color: rgba(0, 0, 0, 0.555);
-    width: 400px;
+#titulo > a{
+    text-decoration: none;
     color: white;
-    height: 10vh;
-    padding: 10px;
-}
-.texto-intro2{
-    font-size: 40px;
-    top: 30vh;
-    left: 6vw;
-    position: relative;
-    margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.555);
-    width: 480px;
-    color: white;
-    height: 10vh;
-    padding: 10px;
+    font-family: 'Merienda', cursive;
+    font-size: 1.5rem;
 }
 }
-
 .links:hover{
     border-bottom: 2px solid white;
     padding-bottom: 1px;
@@ -144,6 +140,8 @@ body{
     background-size: cover;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
 .nav-list.active {
     transform: translateX(0);

@@ -29,7 +29,7 @@ main{
 table{
     border: 1px black solid;
     text-align: center;
-    font-size: 20px;
+    font-size: 1.3rem;
     }
 th{
     border: 1px black solid;
@@ -50,6 +50,7 @@ td{
 .nome{
     border: 1px solid black;
     padding: 7px;
+    font-size: 3rem;
 }
 #nav-bar{
     background-color: #23232e;
@@ -81,19 +82,19 @@ td{
     transition: 0.3s;
 }
 #titulo{
-    margin-top: 10px;
+    top: 0.5vh;
     position: relative;
 }
 #titulo > a{
     text-decoration: none;
     color: white;
     font-family: 'Merienda', cursive;
-    font-size: 35px;
+    font-size: 1.5rem;
 }
 @media(max-width:800px) {
 .nav-list{
     position: absolute;
-    top: 14vh;
+    top: 13vh;
     right: 0;
     width: 35vw;
     height: 92vh;
@@ -127,13 +128,18 @@ main{
     border: 1px solid black;
     padding: 7px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.418);
+    font-size: 1.5rem;
 }
 table{
         border: 1px black solid;
         text-align: center;
-        font-size: 20px;
+        font-size: 1rem;
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.418);
     }
+.container{
+    position: relative;
+    overflow: hidden;
+}
 }
 .nav-list.active {
     transform: translateX(0);
@@ -263,7 +269,7 @@ table{
     font-size: 15px;
     display: flex;
     position: relative;
-    top: -8vh;
+    top: -10vh;
 }
 th {
     padding: 3px;
