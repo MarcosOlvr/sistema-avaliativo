@@ -17,14 +17,14 @@
 
   {% if form.errors %}
     <script>
-      alert("Seu nome de usuário ou senha está errado. Por favor, tente novamente.")
+      alert("Seu nome de usuário ou senha está incorreto. Por favor, tente novamente.")
     </script>
   {% endif %}
     
   {% if next %}
     {% if user.is_authenticated %}
       <script> 
-        alert('Sua conta não tem acesso a essa página. Para proceguir, entre em uma conta que contenha o acesso.')
+        alert('Sua conta não tem acesso a essa página. Para prosseguir, entre em uma conta que contenha o acesso.')
       </script>
     {% else %}
       <script> 
@@ -54,7 +54,7 @@
   </form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
-  <p><a href="{% url 'password_reset' %}">Esqueceu a senha?</a></p>
+  <p><a href="#">Esqueceu a senha?</a></p>
 
 </div>
 
