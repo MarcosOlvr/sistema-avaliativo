@@ -10,7 +10,6 @@
 }
 body{
     overflow-x:hidden;
-    overflow-y:hidden;
 }
 
 .links{
@@ -123,7 +122,7 @@ font-size: 25px;
 margin: 20px auto;
 border: 1px solid black;
 width: 60vw;
-height: 80vh;
+height: 100vh;
 text-align: center;
 display: flex;
 flex-direction: column;
